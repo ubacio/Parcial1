@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #9b2a2a;
+    background: linear-gradient(90deg, rgba(155, 42, 42, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(105, 18, 18, 1) 100%);    /* Aca eleji usar una gradiente, sentia que dejarlo como background color solo era medio muy solido, y siento que queda mejor*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2, h1, h3 {
+    color: rgb(105, 20, 20);
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+h1 {
+    color: rgb(184, 11, 11);
+}
+header, main, nav, section, aside, footer {
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    margin: 10px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.creepster-regular {
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+section img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+    filter: grayscale(100%);
+}
+section img:hover {
+    transition: 4ms;
+    margin-top: 15px;
+    filter: grayscale(0%) sepia(100%) hue-rotate(-50deg) saturate(300%) brightness(0.9); /* Me costo encontrar como hacer este efecto pero me gusto el resultado jajaja*/
+}
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    width: 35px;
+    height: 30px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    background: white;
+    display: block;
+    height: 4px;
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+/* Otro efecto medio rebuscado, pero creo que quedo bien tambien :)*/
+
+#menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #cf5e5e;
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: max-height 0.4s ease;
+    z-index: 1000;
+}
+
+.menu a {
+    color: white;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+    background-color: #222;
+}
+
+.menu a:hover {
+    background: darkred;
+    color: #fff;
+}
+
+#menu-toggle:checked ~ .menu {
+    max-height: 500px;
+}
